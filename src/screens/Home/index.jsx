@@ -14,7 +14,7 @@ const Home = () => {
   const {isOpenModal} = useContext(ModalContext);
   
   return (
-    <StyledHome>
+    <StyledHome>   
       <LeftComponent />
       <RightComponent />
       { isOpenModal.show && <Modal />}

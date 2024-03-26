@@ -124,7 +124,7 @@ const RightComponent = () => {
     <StyledRightComponent>
       <Header>
         <Heading size="large">
-          My <span>Playground</span>
+          My <span>Codes</span>
         </Heading>
         <AddButton onClick={() => openModal({
           show: true,
@@ -160,7 +160,7 @@ const RightComponent = () => {
                     folderId: folderId,
                     cardId: "",
                   }
-                })}><span>+</span> New Playground</AddButton>
+                })}><span>+</span> New Code</AddButton>
               </FolderIcons>
             </Header>
 

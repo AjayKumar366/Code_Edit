@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
+import {  Navigate } from 'react-router-dom';
 import styled from 'styled-components'
 import logo from '../../assets/logo.png'
 import { ModalContext } from '../../context/ModalContext'
+
 
 const StyledLeftComponent = styled.div`
     position: fixed;
@@ -20,6 +22,9 @@ const StyledLeftComponent = styled.div`
         width: 100%;
     }
 `
+
+
+
 const ContentContainer = styled.div`
     text-align: center;
 `
@@ -47,14 +52,16 @@ const SubHeading = styled.div`
 `
 
 const AddNewButton = styled.button`
-    padding: 0.25rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     font-size: 1rem;
     border: none;
     border-radius: 30px;
     box-shadow: 0px 0px 4px 2px #8b8b8b;
     display: flex;
+    justify-content:space-between;
+    margin:0.5rem;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.5rem;
     transition: all 0.2s ease-in-out;
     span{
         font-size: 2rem;
@@ -67,13 +74,18 @@ const AddNewButton = styled.button`
         box-shadow: 0px 0px 6px 2px #8b8b8b;
     }
 `
+
 const LeftComponent = () => {
     const { openModal } = useContext(ModalContext);
+    const [goToSignUp, setGoToSignUp] =React.useState(false);
+    if(goToSignUp){
+        return <Navigate to ="SignUp"/>;
+    }
     return (
         <StyledLeftComponent>
             <ContentContainer>
                 <Logo src={logo} alt="" />
-                <MainHeading> <span>Code</span> Deck</MainHeading>
+                <MainHeading> <span>Code</span> Edit</MainHeading>
                 <SubHeading>Code. Compile. Debug.</SubHeading>
                 <AddNewButton onClick={() => openModal({
                     show: true,
@@ -82,7 +94,9 @@ const LeftComponent = () => {
                         folderId: "",
                         cardId: "",
                     }
-                })} ><span>+</span> Create New Playground</AddNewButton>
+
+                })} ><span>+</span> Create New Folder</AddNewButton>
+                <AddNewButton onClick={() =>{setGoToSignUp(true);}}>SignUp</AddNewButton>
             </ContentContainer>
         </StyledLeftComponent>
     )
