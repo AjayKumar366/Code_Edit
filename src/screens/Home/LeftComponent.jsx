@@ -96,7 +96,6 @@ const LeftComponent = () => {
                     }
 
                 })} ><span>+</span> Create New Folder</AddNewButton>
-                <AddNewButton onClick={() =>{setGoToSignUp(true);}}>SignUp</AddNewButton>
             </ContentContainer>
         </StyledLeftComponent>
     )
